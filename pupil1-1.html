@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alice 單字本｜Day 4｜環境與自然</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#2E7D32;--acc-l:#E8F5E9;--acc-m:#81C784;--red:#C62828;--red-bg:#FFEBEE;--txt:#1a1a1a;--sub:#555;--bg:#F9FBF9;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'BIZ UDPGothic','Noto Sans TC',sans-serif;background:var(--bg);color:var(--txt);font-size:17px;line-height:1.75;}
+header{background:linear-gradient(135deg,var(--acc) 0%,#388E3C 100%);color:#fff;padding:28px 20px 22px;text-align:center;}
+header h1{font-size:1.75rem;letter-spacing:1px;}
+header p{margin-top:6px;font-size:.95rem;opacity:.9;}
+.badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+.badge{background:rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.85rem;}
+.container{max-width:860px;margin:0 auto;padding:20px 14px 60px;}
+.sec-title{font-size:1.25rem;font-weight:700;border-left:6px solid var(--acc);padding-left:12px;margin:32px 0 16px;color:var(--acc);}
+
+/* focus box */
+.focus-box{background:#fff;border-radius:12px;border:2px solid var(--acc-m);padding:16px 20px;margin-bottom:24px;}
+.focus-box h3{color:var(--acc);font-size:1rem;margin-bottom:10px;}
+.focus-box ol{padding-left:20px;color:#444;font-size:.94rem;}
+.focus-box li{margin-bottom:6px;}
+
+/* vocab card */
+.vc{background:#fff;border-radius:14px;border:2px solid var(--acc-m);box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:22px;overflow:hidden;}
+.vc.un{border-color:var(--red);}
+.vh{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;background:var(--acc-l);padding:14px 18px 10px;}
+.vc.un .vh{background:var(--red-bg);}
+.vm{flex:1;min-width:200px;}
+.we{font-size:1.45rem;font-weight:700;color:var(--acc);}
+.vc.un .we{color:var(--red);}
+.wk{font-size:1rem;color:#888;margin:2px 0;}
+.wp{display:inline-block;background:var(--acc);color:#fff;border-radius:6px;padding:1px 9px;font-size:.78rem;}
+.vc.un .wp{background:var(--red);}
+.wz{font-size:1.1rem;font-weight:700;margin-top:4px;}
+.dot{font-size:1.3rem;margin-top:4px;min-width:26px;text-align:center;}
+.vb{padding:14px 18px;}
+.tagrow{display:flex;align-items:flex-start;gap:8px;margin:5px 0;flex-wrap:wrap;}
+.tagrow b{display:inline-block;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:700;white-space:nowrap;min-width:56px;text-align:center;}
+b.deriv{background:#E3F2FD;color:#0D47A1;}
+b.root{background:#F3E5F5;color:#6A1B9A;}
+b.phrase{background:#E8F5E9;color:#1B5E20;}
+b.idiom{background:#FFF8E1;color:#F57F17;}
+b.confuse{background:#FCE4EC;color:#880E4F;}
+.ex{margin-top:10px;list-style:none;padding:0;}
+.ex li{border-left:3px solid var(--acc-m);margin-bottom:8px;padding:6px 10px;background:#f7f7f7;border-radius:0 8px 8px 0;}
+.vc.un .ex li{border-left-color:#EF9A9A;}
+.en{font-weight:700;color:#333;}
+.zh{color:var(--sub);font-size:.92rem;margin-top:2px;}
+
+/* summary table */
+details.tbl{border:2px solid var(--acc-m);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+details.tbl summary{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;cursor:pointer;background:var(--acc-l);font-weight:700;color:var(--acc);font-size:1rem;list-style:none;user-select:none;}
+details.tbl summary::-webkit-details-marker{display:none;}
+.tarrow{font-size:1.2rem;transition:transform .25s;display:inline-block;}
+details.tbl[open] .tarrow{transform:rotate(180deg);}
+details.tbl table{width:100%;border-collapse:collapse;font-size:.88rem;}
+details.tbl th{background:var(--acc-l);color:var(--acc);padding:8px 12px;text-align:left;border-bottom:1px solid #ccc;}
+details.tbl td{padding:8px 12px;border-bottom:1px solid #eee;}
+details.tbl tr:last-child td{border-bottom:none;}
+
+/* grammar */
+.gc{background:#fff;border-radius:12px;border-left:6px solid var(--acc);padding:16px 20px;margin-bottom:18px;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.glabel{font-size:.8rem;font-weight:700;color:var(--acc);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.gtitle{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.gbody{color:#444;font-size:.97rem;}
+.gbody b{color:var(--acc);}
+.pattern{background:var(--acc-l);border-radius:8px;padding:10px 14px;margin:10px 0;font-family:monospace;font-size:.95rem;}
+.gex{margin:8px 0;padding-left:12px;border-left:3px solid var(--acc-m);}
+.gex .en{font-weight:700;}
+.gex .zh{color:var(--sub);font-size:.9rem;}
+
+/* reading */
+.rbox{background:#fff;border-radius:14px;border:2px solid var(--acc-m);padding:22px 22px 18px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:24px;}
+.rmeta{display:flex;gap:10px;flex-wrap:wrap;font-size:.82rem;color:#888;margin-bottom:12px;}
+.rmeta span{background:var(--acc-l);border-radius:12px;padding:2px 10px;color:var(--acc);font-weight:700;}
+.rtext{line-height:1.9;font-size:1rem;color:#333;}
+.rtext .hl{font-weight:700;color:var(--acc);}
+.rq{background:#f9f9f9;border-radius:10px;padding:14px 16px;margin-top:12px;}
+.rq .qn{font-weight:700;color:var(--acc);margin-right:6px;}
+.rchoices{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:8px;padding-left:18px;font-size:.91rem;color:#444;}
+details.rqa{margin-top:10px;}
+details.rqa summary{cursor:pointer;color:var(--acc);font-weight:700;font-size:.9rem;list-style:none;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:var(--acc-l);border-radius:8px;}
+details.rqa summary::-webkit-details-marker{display:none;}
+.rarrow{transition:transform .25s;display:inline-block;}
+details.rqa[open] .rarrow{transform:rotate(90deg);}
+.rans{padding:10px 14px;background:var(--acc-l);border-radius:8px;margin-top:6px;font-size:.93rem;}
+.rans strong{color:#1B5E20;}
+
+/* quiz */
+.qwrap{background:#fff;border-radius:14px;border:2px solid var(--acc-m);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.qq{padding:14px 20px 10px;border-bottom:1px solid #eee;font-size:.97rem;}
+.qq:last-of-type{border-bottom:none;}
+.qnum{font-weight:700;color:var(--acc);margin-right:6px;}
+.qch{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin-top:6px;padding-left:20px;font-size:.92rem;color:#444;}
+details.qrev{border-top:2px solid var(--acc);}
+details.qrev summary{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;cursor:pointer;background:var(--acc-l);font-weight:700;color:var(--acc);font-size:1rem;list-style:none;user-select:none;}
+details.qrev summary::-webkit-details-marker{display:none;}
+.qarrow{font-size:1.2rem;transition:transform .25s;display:inline-block;}
+details.qrev[open] .qarrow{transform:rotate(180deg);}
+.rbody{padding:18px 20px;}
+.arow{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;background:#f4f4f4;margin-bottom:8px;}
+.anum{font-weight:700;color:var(--acc);min-width:28px;}
+.akey{font-weight:700;color:#1B5E20;min-width:28px;}
+.aex{color:#444;font-size:.9rem;}
+footer{text-align:center;padding:24px 10px;color:#aaa;font-size:.82rem;border-top:1px solid #eee;margin-top:40px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌿 Alice 單字本 · Day 4</h1>
+  <p>環境與自然 · Environment &amp; Nature</p>
+  <div class="badge-row">
+    <span class="badge">📅 第4天</span>
+    <span class="badge">📖 10個單字</span>
+    <span class="badge">🔴 不熟悉×3 ＋ 🟢 同等級×7</span>
+    <span class="badge">✏️ 3個文法重點</span>
+    <span class="badge">📄 閱讀＋3題</span>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="sec-title">📋 Day 4 學習重點</div>
+<div class="focus-box">
+  <h3>📌 本日三大目標（對應 Alice 的考試弱點）</h3>
+  <ol>
+    <li><b>環境主題關鍵字</b>：scarce / contaminate / habitat — 學測與段考閱讀的常見字</li>
+    <li><b>分詞構句化簡</b>（段考 Q34 關係詞錯誤）：會用 V-ing 和 pp 化簡關係子句</li>
+    <li><b>因果連接詞精準運用</b>：due to / owing to / as a result — 學測文意選填高頻考點</li>
+  </ol>
+</div>
+
+<div class="sec-title">📚 Part 1｜單字學習</div>
+
+<!-- 1 scarce 🔴 -->
+<div class="vc un">
+  <div class="vh"><div class="vm"><div class="we">scarce</div><div class="wk">[skɛrs]</div><span class="wp">adj.</span><div class="wz">稀少的；缺乏的</div></div><div class="dot">🔴</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>scarcely (adv.) 幾乎不、僅僅｜scarcity (n.) 稀少；缺乏</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>rare 強調「罕見珍貴」；scarce 強調「數量供應不足」</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>make oneself scarce 悄悄離開｜scarce resources 匱乏的資源</span></div>
+    <ul class="ex">
+      <li><div class="en">Clean water is becoming <b>scarce</b> in many parts of the world.</div><div class="zh">乾淨的水在全球許多地方正逐漸稀缺。</div></li>
+      <li><div class="en">Jobs were <b>scarce</b> during the economic downturn, and many people struggled to find work.</div><div class="zh">經濟衰退期間工作機會稀少，許多人難以找到工作。</div></li>
+      <li><div class="en">Due to the drought, food supplies grew <b>scarce</b> and prices rose sharply.</div><div class="zh">由於乾旱，食物供應越來越匱乏，價格也急劇上升。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2 contaminate 🔴 -->
+<div class="vc un">
+  <div class="vh"><div class="vm"><div class="we">contaminate</div><div class="wk">[kənˈtæmɪˌnet]</div><span class="wp">v.</span><div class="wz">污染；使受到污染</div></div><div class="dot">🔴</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>contamination (n.) 污染｜contaminated (adj.) 受污染的｜contaminant (n.) 污染物</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>pollute 泛指空氣/水/土地污染；contaminate 強調有害物質「滲入」純淨物質</span></div>
+    <ul class="ex">
+      <li><div class="en">Factory waste had <b>contaminated</b> the river, killing thousands of fish.</div><div class="zh">工廠廢棄物污染了河流，導致數千條魚死亡。</div></li>
+      <li><div class="en">The soil near the old mine was <b>contaminated</b> with heavy metals.</div><div class="zh">舊礦場附近的土壤受到重金屬污染。</div></li>
+      <li><div class="en">Scientists warned that the chemical spill could <b>contaminate</b> the groundwater supply.</div><div class="zh">科學家警告，化學品洩漏可能污染地下水供應。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3 habitat 🔴 -->
+<div class="vc un">
+  <div class="vh"><div class="vm"><div class="we">habitat</div><div class="wk">[ˈhæbɪˌtæt]</div><span class="wp">n.</span><div class="wz">棲息地；自然環境</div></div><div class="dot">🔴</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>habitation (n.) 居住地｜inhabit (v.) 居住於｜inhabitant (n.) 居民；棲居者</span></div>
+    <div class="tagrow"><b class="root">字根</b><span>habit- (居住、持有) → inhabit 居住｜habit 習慣｜cohabit 同居</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>natural habitat 自然棲息地｜loss of habitat 棲息地喪失｜destroy habitats 破壞棲息地</span></div>
+    <ul class="ex">
+      <li><div class="en">Deforestation has destroyed the <b>habitat</b> of many rare birds.</div><div class="zh">濫伐森林摧毀了許多稀有鳥類的棲息地。</div></li>
+      <li><div class="en">The panda's natural <b>habitat</b> is limited to a few mountain ranges in China.</div><div class="zh">貓熊的天然棲息地僅限於中國幾處山脈。</div></li>
+      <li><div class="en">Protecting the <b>habitats</b> of endangered species is essential for biodiversity.</div><div class="zh">保護瀕危物種的棲息地對維護生物多樣性至關重要。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4 resource 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">resource</div><div class="wk">[rɪˈsors]</div><span class="wp">n.</span><div class="wz">資源；資產</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>resourceful (adj.) 足智多謀的｜natural resources 天然資源</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>natural resources 天然資源｜human resources 人力資源｜limited resources 有限資源</span></div>
+    <ul class="ex">
+      <li><div class="en">We must use our natural <b>resources</b> wisely to protect the environment.</div><div class="zh">我們必須明智地使用天然資源以保護環境。</div></li>
+      <li><div class="en">The country's greatest <b>resource</b> is its talented and educated workforce.</div><div class="zh">這個國家最大的資源是其有才華且受過良好教育的勞動力。</div></li>
+      <li><div class="en">Schools in rural areas often lack the <b>resources</b> needed to provide quality education.</div><div class="zh">農村地區的學校通常缺乏提供高品質教育所需的資源。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 5 climate 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">climate</div><div class="wk">[ˈklaɪmɪt]</div><span class="wp">n.</span><div class="wz">氣候；（社會）氛圍</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>climatic (adj.) 氣候的｜climate change 氣候變化</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>climate 指長期氣候規律（數年以上）；weather 指每日天氣狀況</span></div>
+    <ul class="ex">
+      <li><div class="en">Taiwan has a tropical <b>climate</b> with hot, humid summers and mild winters.</div><div class="zh">台灣的氣候屬熱帶型，夏季炎熱潮濕，冬季溫和。</div></li>
+      <li><div class="en"><b>Climate</b> change is causing more frequent and severe storms around the world.</div><div class="zh">氣候變化正在導致全球更頻繁、更嚴重的暴風雨。</div></li>
+      <li><div class="en">The economic <b>climate</b> affects people's spending habits and confidence.</div><div class="zh">經濟氛圍影響人們的消費習慣和信心。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6 species 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">species</div><div class="wk">[ˈspiʃɪz]</div><span class="wp">n.</span><div class="wz">物種（單複數同形）</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="phrase">片語</b><span>endangered species 瀕危物種｜invasive species 入侵物種｜native species 原生物種</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>species 指生物「種」（a species / two species 單複同形）；breed 指人工培育品種</span></div>
+    <ul class="ex">
+      <li><div class="en">Over one million <b>species</b> are at risk of extinction due to habitat loss.</div><div class="zh">由於棲息地喪失，超過一百萬個物種面臨滅絕的風險。</div></li>
+      <li><div class="en">This <b>species</b> of frog is found only in the rainforests of South America.</div><div class="zh">這種青蛙只在南美洲的熱帶雨林中才能找到。</div></li>
+      <li><div class="en">Scientists discovered a new <b>species</b> of insect deep in the Amazon jungle.</div><div class="zh">科學家在亞馬遜叢林深處發現了一種新的昆蟲物種。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 7 landscape 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">landscape</div><div class="wk">[ˈlændˌskep]</div><span class="wp">n. / v.</span><div class="wz">（自然）景觀；地貌（v. 美化景觀）</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="phrase">片語</b><span>the political landscape 政治格局｜urban landscape 城市景觀｜barren landscape 荒涼地貌</span></div>
+    <ul class="ex">
+      <li><div class="en">The <b>landscape</b> of the Scottish Highlands is breathtakingly beautiful.</div><div class="zh">蘇格蘭高地的景觀令人歎為觀止。</div></li>
+      <li><div class="en">The industrial revolution permanently changed the <b>landscape</b> of Britain.</div><div class="zh">工業革命永遠改變了英國的面貌。</div></li>
+      <li><div class="en">Mining activities have completely altered the <b>landscape</b> around the town.</div><div class="zh">採礦活動已徹底改變了該鎮周邊的地貌。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 8 absorb 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">absorb</div><div class="wk">[əbˈsɔrb]</div><span class="wp">v.</span><div class="wz">吸收；融入；全神貫注</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>absorption (n.) 吸收｜absorbent (adj.) 能吸收的</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>be absorbed in 全神貫注於｜absorb carbon dioxide 吸收二氧化碳</span></div>
+    <ul class="ex">
+      <li><div class="en">Trees <b>absorb</b> carbon dioxide from the atmosphere and help reduce global warming.</div><div class="zh">樹木從大氣中吸收二氧化碳，有助於減少全球暖化。</div></li>
+      <li><div class="en">She was so <b>absorbed</b> in her book that she didn't hear the phone ring.</div><div class="zh">她全神貫注於書本，完全沒聽到電話響。</div></li>
+      <li><div class="en">The sponge can <b>absorb</b> a large amount of water relative to its size.</div><div class="zh">海綿能吸收相對於其體積而言大量的水分。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 9 sustain 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">sustain</div><div class="wk">[səˈsten]</div><span class="wp">v.</span><div class="wz">維持；支撐；使持續</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>sustainable (adj.) 永續的｜sustainability (n.) 永續性｜unsustainable (adj.) 不可持續的</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>sustainable development 永續發展｜sustain life 維持生命｜a sustainable lifestyle 永續生活方式</span></div>
+    <ul class="ex">
+      <li><div class="en">The rainforest <b>sustains</b> millions of plant and animal species.</div><div class="zh">熱帶雨林養育著數百萬種植物和動物物種。</div></li>
+      <li><div class="en">We need to adopt <b>sustainable</b> farming methods to protect the soil for future generations.</div><div class="zh">我們需要採用永續農業方式，為後代子孫保護土壤。</div></li>
+      <li><div class="en">The athlete could not <b>sustain</b> her speed for the entire marathon.</div><div class="zh">那位運動員無法在整場馬拉松中維持她的速度。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 10 adapt 🟢 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">adapt</div><div class="wk">[əˈdæpt]</div><span class="wp">v.</span><div class="wz">適應；改編</div></div><div class="dot">🟢</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>adaptation (n.) 適應；改編作品｜adaptable (adj.) 適應性強的</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>adapt to 「適應環境」（主動改變自身）；adopt 「採用、收養」（接受他方的事物）</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>adapt to changes 適應變化｜adapted from 改編自</span></div>
+    <ul class="ex">
+      <li><div class="en">Animals must <b>adapt</b> to their environment in order to survive.</div><div class="zh">動物必須適應環境才能生存。</div></li>
+      <li><div class="en">The film was <b>adapted</b> from a best-selling novel by the same author.</div><div class="zh">這部電影改編自同一位作者的暢銷小說。</div></li>
+      <li><div class="en">It took her several months to <b>adapt</b> to life in a new country.</div><div class="zh">她花了幾個月才適應在新國家的生活。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Summary Table -->
+<details class="tbl">
+  <summary><span>📋 Day 4 單字衍生詞速查表（點擊展開）</span><span class="tarrow">⌄</span></summary>
+  <table>
+    <tr><th>單字</th><th>衍生詞</th><th>字根</th></tr>
+    <tr><td><b>scarce</b></td><td>scarcely, scarcity</td><td>—</td></tr>
+    <tr><td><b>contaminate</b></td><td>contamination, contaminated, contaminant</td><td>—</td></tr>
+    <tr><td><b>habitat</b></td><td>habitation, inhabit, inhabitant</td><td>habit- 居住</td></tr>
+    <tr><td><b>resource</b></td><td>resourceful, natural resources</td><td>—</td></tr>
+    <tr><td><b>climate</b></td><td>climatic, climate change</td><td>—</td></tr>
+    <tr><td><b>species</b></td><td>（單複數同形）endangered species</td><td>—</td></tr>
+    <tr><td><b>landscape</b></td><td>urban/barren/political landscape</td><td>—</td></tr>
+    <tr><td><b>absorb</b></td><td>absorption, absorbent</td><td>—</td></tr>
+    <tr><td><b>sustain</b></td><td>sustainable, sustainability, unsustainable</td><td>—</td></tr>
+    <tr><td><b>adapt</b></td><td>adaptation, adaptable</td><td>—</td></tr>
+  </table>
+</details>
+
+<!-- ══ GRAMMAR ══ -->
+<div class="sec-title">✏️ Part 2｜文法加強 3 大重點</div>
+
+<div class="gc">
+  <div class="glabel">文法重點 1 ｜ 段考 Q34 — 關係子句化簡（分詞構句）</div>
+  <div class="gtitle">關係子句可用現在分詞（V-ing）或過去分詞（pp）化簡</div>
+  <div class="gbody">
+    <p>當關係子句動詞為<b>主動</b>時，化為 <b>V-ing</b>；若為<b>被動</b>，則化為 <b>pp</b>。化簡後句子更簡潔，學測閱讀也常見。</p>
+    <div class="pattern">
+      The river [that flows through the city] → The river <b>flowing through the city</b>（主動 → V-ing）<br>
+      The lake [that was polluted by factories] → The lake <b>polluted by factories</b>（被動 → pp）
+    </div>
+    <div class="gex"><div class="en">The animals <b>living in</b> the wetlands depend on clean water to <b>sustain</b> their lives.</div><div class="zh">住在溼地的動物依賴乾淨的水源維持生命。（主動 → living）</div></div>
+    <div class="gex"><div class="en">The forest <b>damaged by</b> the wildfire took decades to recover.</div><div class="zh">被山火破壞的森林花了數十年才恢復。（被動 → damaged）</div></div>
+    <div class="gex"><div class="en">Scientists studied the soil samples <b>collected from</b> the <b>contaminated</b> area.</div><div class="zh">科學家研究了從污染區域收集的土壤樣本。（被動 → collected）</div></div>
+  </div>
+</div>
+
+<div class="gc">
+  <div class="glabel">文法重點 2 ｜ 段考 Q26 / 學測文意選填 — 因果連接詞精準搭配</div>
+  <div class="gtitle">due to / owing to / because of ＋ 名詞 vs. as a result / therefore ＋ 句子</div>
+  <div class="gbody">
+    <div class="pattern">
+      【說原因】due to / owing to / because of + <b>名詞（片語）</b><br>
+      【說結果】as a result / therefore / consequently + <b>完整句子</b>
+    </div>
+    <p>⚠️ <b>due to</b> 和 <b>because of</b> 後面只能接<b>名詞片語</b>，不能直接接子句（不能接 due to + S + V）。</p>
+    <div class="gex"><div class="en"><b>Due to</b> climate change, many <b>species</b> are losing their <b>habitats</b>.</div><div class="zh">由於氣候變化，許多物種正在失去牠們的棲息地。</div></div>
+    <div class="gex"><div class="en">The soil was <b>contaminated</b>; <b>as a result</b>, the crops failed completely.</div><div class="zh">土壤受到污染；因此，農作物完全歉收。</div></div>
+    <div class="gex"><div class="en">Water became <b>scarce owing to</b> the prolonged drought; <b>therefore</b>, the government issued warnings.</div><div class="zh">由於長期乾旱，水資源變得稀缺；因此，政府發出了警告。</div></div>
+  </div>
+</div>
+
+<div class="gc">
+  <div class="glabel">文法重點 3 ｜ 學測文意選填 — 否定倒裝句（加強語氣）</div>
+  <div class="gtitle">以否定副詞開頭，主詞與助動詞要倒裝</div>
+  <div class="gbody">
+    <p>當句首是 <b>Never / Seldom / Not only / Not until / Hardly</b> 等否定詞時，後面主詞與助動詞必須倒裝，比普通語序更有強調效果，在學測閱讀中常出現。</p>
+    <div class="pattern">
+      <b>Never</b> + have/has/had + S + pp ...<br>
+      <b>Not only</b> + 助動詞 + S + V ..., <b>but also</b> ...
+    </div>
+    <div class="gex"><div class="en"><b>Never have</b> scientists seen such rapid <b>habitat</b> loss in recorded history.</div><div class="zh">科學家在有記錄的歷史中從未見過如此迅速的棲息地喪失。</div></div>
+    <div class="gex"><div class="en"><b>Not only does</b> deforestation destroy animal <b>habitats</b>, but it also releases huge amounts of carbon dioxide.</div><div class="zh">砍伐森林不僅摧毀動物棲息地，還會釋放大量二氧化碳。</div></div>
+    <div class="gex"><div class="en"><b>Seldom do</b> people realize how much clean water they <b>waste</b> every single day.</div><div class="zh">人們很少意識到他們每天浪費了多少乾淨的水。</div></div>
+  </div>
+</div>
+
+<!-- ══ READING ══ -->
+<div class="sec-title">📖 Part 3｜閱讀測驗</div>
+<div class="rbox">
+  <div class="rmeta">
+    <span>主題：Environment &amp; Nature</span><span>約 114 字</span><span>難度：高中</span>
+  </div>
+  <p style="font-weight:700;font-size:1.05rem;margin-bottom:10px;">The Silent Forest</p>
+  <div class="rtext">
+    Every year, millions of hectares of forest disappear. Trees are cut down for farmland, timber, and urban development, leaving many <span class="hl">species</span> without a <span class="hl">habitat</span>. Forests do far more than provide homes for wildlife — they <span class="hl">absorb</span> carbon dioxide, regulate rainfall, and <span class="hl">sustain</span> local water supplies. When forests are lost, water becomes <span class="hl">scarce</span>, soils erode, and the <span class="hl">landscape</span> turns barren.
+    <br><br>
+    Many nations have pledged to protect their remaining forests, yet illegal logging continues. Scientists warn that without serious action, some of the world's most critical ecosystems could collapse within decades. The good news is that forests can recover if given the chance. Communities that <span class="hl">adapt</span> their farming practices and reduce their dependence on forest <span class="hl">resources</span> are helping to reverse the damage — one tree at a time.
+  </div>
+
+  <!-- Q1 -->
+  <div class="rq">
+    <span class="qn">1.</span>What is the main idea of this passage?
+    <div class="rchoices">
+      <span>(A) Forests should be cut for farmland.</span>
+      <span>(B) Forests provide benefits but are being rapidly destroyed.</span>
+      <span>(C) Tourism is the best way to fund conservation.</span>
+      <span>(D) Animals easily adapt to life outside forests.</span>
+    </div>
+    <details class="rqa"><summary><span class="rarrow">▶</span> 查看答案</summary>
+    <div class="rans"><strong>✔ 正解：(B)</strong><br>全文強調森林的多重功能（absorb CO₂ / sustain water / habitat for species）以及正遭受破壞的現況，並提出解決方向。(A)(C)(D) 均非文章重點。</div></details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="rq">
+    <span class="qn">2.</span>According to the passage, which action helps reverse forest damage?
+    <div class="rchoices">
+      <span>(A) Logging more trees for profit</span>
+      <span>(B) Halting all tourism in forest areas</span>
+      <span>(C) Communities adapting their farming and reducing resource use</span>
+      <span>(D) Planting trees only in urban areas</span>
+    </div>
+    <details class="rqa"><summary><span class="rarrow">▶</span> 查看答案</summary>
+    <div class="rans"><strong>✔ 正解：(C)</strong><br>末段明確說："Communities that <b>adapt</b> their farming practices and reduce their dependence on forest <b>resources</b> are helping to reverse the damage." 直接對應 (C)。</div></details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="rq">
+    <span class="qn">3.</span>The word "scarce" in the passage is closest in meaning to:
+    <div class="rchoices">
+      <span>(A) extremely cold</span>
+      <span>(B) in short supply</span>
+      <span>(C) heavily polluted</span>
+      <span>(D) easily found</span>
+    </div>
+    <details class="rqa"><summary><span class="rarrow">▶</span> 查看答案</summary>
+    <div class="rans"><strong>✔ 正解：(B)</strong><br>scarce = 「供應不足、稀少」→ closest to "in short supply"。(D) 是反義；(C) 是 contaminated 的意思，注意不要混淆。</div></details>
+  </div>
+</div>
+
+<!-- ══ MCQ ══ -->
+<div class="sec-title">✅ Part 4｜單字選擇複習</div>
+<div class="qwrap">
+  <div class="qq"><span class="qnum">1.</span>The area's soil had been ________ by chemicals from the nearby factory, making it unsafe for farming.<div class="qch"><span>(A) adapted</span><span>(B) contaminated</span><span>(C) absorbed</span><span>(D) sustained</span></div></div>
+  <div class="qq"><span class="qnum">2.</span>Fresh water is becoming increasingly ________ in desert regions where rainfall is low.<div class="qch"><span>(A) scarce</span><span>(B) diverse</span><span>(C) efficient</span><span>(D) ancient</span></div></div>
+  <div class="qq"><span class="qnum">3.</span>The destruction of forests has reduced the ________ available for tigers and other large mammals.<div class="qch"><span>(A) landscape</span><span>(B) climate</span><span>(C) habitat</span><span>(D) resource</span></div></div>
+  <div class="qq"><span class="qnum">4.</span>Plants ________ sunlight to produce energy through the process of photosynthesis.<div class="qch"><span>(A) sustain</span><span>(B) absorb</span><span>(C) adapt</span><span>(D) disrupt</span></div></div>
+  <div class="qq"><span class="qnum">5.</span>Over time, animals must ________ to their changing environment if they are to survive.<div class="qch"><span>(A) contaminate</span><span>(B) contribute</span><span>(C) adopt</span><span>(D) adapt</span></div></div>
+  <details class="qrev">
+    <summary><span>📋 點此查看答案 &amp; 解析｜手機版請調正</span><span class="qarrow">⌄</span></summary>
+    <div class="rbody">
+      <div class="arow"><span class="anum">1.</span><span class="akey">(B)</span><span class="aex">contaminated — be contaminated by... 被化學品污染，是固定用法。</span></div>
+      <div class="arow"><span class="anum">2.</span><span class="akey">(A)</span><span class="aex">scarce — 沙漠地區降雨少，水資源「稀缺」。</span></div>
+      <div class="arow"><span class="anum">3.</span><span class="akey">(C)</span><span class="aex">habitat — 森林破壞讓動物失去「棲息地」。landscape 是景觀，意思不符。</span></div>
+      <div class="arow"><span class="anum">4.</span><span class="akey">(B)</span><span class="aex">absorb — 植物「吸收」陽光進行光合作用，absorb sunlight 是固定搭配。</span></div>
+      <div class="arow"><span class="anum">5.</span><span class="akey">(D)</span><span class="aex">adapt — adapt to their environment「適應環境」。注意 (C) adopt「採用、收養」不接 to，完全不同！</span></div>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>Alice 英文單字本 Day 4 ｜ Environment &amp; Nature 🌿 ｜ 僅供個人教學使用</footer>
+</body>
+</html>

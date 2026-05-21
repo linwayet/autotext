@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alice 單字本｜Day 6｜科技與創新</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#283593;--acc-l:#E8EAF6;--acc-m:#7986CB;--red:#C62828;--red-bg:#FFEBEE;--txt:#1a1a1a;--sub:#555;--bg:#F8F9FF;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'BIZ UDPGothic','Noto Sans TC',sans-serif;background:var(--bg);color:var(--txt);font-size:17px;line-height:1.75;}
+header{background:linear-gradient(135deg,var(--acc) 0%,#3949AB 100%);color:#fff;padding:28px 20px 22px;text-align:center;}
+header h1{font-size:1.75rem;letter-spacing:1px;}
+header p{margin-top:6px;font-size:.95rem;opacity:.9;}
+.badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+.badge{background:rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.85rem;}
+.container{max-width:860px;margin:0 auto;padding:20px 14px 60px;}
+.sec-title{font-size:1.25rem;font-weight:700;border-left:6px solid var(--acc);padding-left:12px;margin:32px 0 16px;color:var(--acc);}
+.focus-box{background:#fff;border-radius:12px;border:2px solid var(--acc-m);padding:16px 20px;margin-bottom:24px;}
+.focus-box h3{color:var(--acc);font-size:1rem;margin-bottom:10px;}
+.focus-box ol{padding-left:20px;color:#444;font-size:.94rem;}
+.focus-box li{margin-bottom:6px;}
+.vc{background:#fff;border-radius:14px;border:2px solid var(--acc-m);box-shadow:0 2px 8px rgba(0,0,0,.07);margin-bottom:22px;overflow:hidden;}
+.vc.un{border-color:var(--red);}
+.vh{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;background:var(--acc-l);padding:14px 18px 10px;}
+.vc.un .vh{background:var(--red-bg);}
+.vm{flex:1;min-width:200px;}
+.we{font-size:1.45rem;font-weight:700;color:var(--acc);}
+.vc.un .we{color:var(--red);}
+.wk{font-size:1rem;color:#888;margin:2px 0;}
+.wp{display:inline-block;background:var(--acc);color:#fff;border-radius:6px;padding:1px 9px;font-size:.78rem;}
+.vc.un .wp{background:var(--red);}
+.wz{font-size:1.1rem;font-weight:700;margin-top:4px;}
+.dot{font-size:1.3rem;margin-top:4px;min-width:26px;text-align:center;}
+.vb{padding:14px 18px;}
+.tagrow{display:flex;align-items:flex-start;gap:8px;margin:5px 0;flex-wrap:wrap;}
+.tagrow b{display:inline-block;border-radius:5px;padding:1px 8px;font-size:.75rem;font-weight:700;white-space:nowrap;min-width:56px;text-align:center;}
+b.deriv{background:#E3F2FD;color:#0D47A1;}
+b.root{background:#F3E5F5;color:#6A1B9A;}
+b.phrase{background:#E8F5E9;color:#1B5E20;}
+b.idiom{background:#FFF8E1;color:#F57F17;}
+b.confuse{background:#FCE4EC;color:#880E4F;}
+.ex{margin-top:10px;list-style:none;padding:0;}
+.ex li{border-left:3px solid var(--acc-m);margin-bottom:8px;padding:6px 10px;background:#f7f7f7;border-radius:0 8px 8px 0;}
+.vc.un .ex li{border-left-color:#EF9A9A;}
+.en{font-weight:700;color:#333;}
+.zh{color:var(--sub);font-size:.92rem;margin-top:2px;}
+details.tbl{border:2px solid var(--acc-m);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+details.tbl summary{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;cursor:pointer;background:var(--acc-l);font-weight:700;color:var(--acc);font-size:1rem;list-style:none;user-select:none;}
+details.tbl summary::-webkit-details-marker{display:none;}
+.tarrow{font-size:1.2rem;transition:transform .25s;display:inline-block;}
+details.tbl[open] .tarrow{transform:rotate(180deg);}
+details.tbl table{width:100%;border-collapse:collapse;font-size:.88rem;}
+details.tbl th{background:var(--acc-l);color:var(--acc);padding:8px 12px;text-align:left;border-bottom:1px solid #ccc;}
+details.tbl td{padding:8px 12px;border-bottom:1px solid #eee;}
+details.tbl tr:last-child td{border-bottom:none;}
+.gc{background:#fff;border-radius:12px;border-left:6px solid var(--acc);padding:16px 20px;margin-bottom:18px;box-shadow:0 1px 6px rgba(0,0,0,.06);}
+.glabel{font-size:.8rem;font-weight:700;color:var(--acc);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.gtitle{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.gbody{color:#444;font-size:.97rem;}
+.gbody b{color:var(--acc);}
+.pattern{background:var(--acc-l);border-radius:8px;padding:10px 14px;margin:10px 0;font-family:monospace;font-size:.95rem;}
+.gex{margin:8px 0;padding-left:12px;border-left:3px solid var(--acc-m);}
+.gex .en{font-weight:700;}
+.gex .zh{color:var(--sub);font-size:.9rem;}
+.rbox{background:#fff;border-radius:14px;border:2px solid var(--acc-m);padding:22px 22px 18px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:24px;}
+.rmeta{display:flex;gap:10px;flex-wrap:wrap;font-size:.82rem;color:#888;margin-bottom:12px;}
+.rmeta span{background:var(--acc-l);border-radius:12px;padding:2px 10px;color:var(--acc);font-weight:700;}
+.rtext{line-height:1.9;font-size:1rem;color:#333;}
+.rtext .hl{font-weight:700;color:var(--acc);}
+.rq{background:#f9f9f9;border-radius:10px;padding:14px 16px;margin-top:12px;}
+.rq .qn{font-weight:700;color:var(--acc);margin-right:6px;}
+.rchoices{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:8px;padding-left:18px;font-size:.91rem;color:#444;}
+details.rqa{margin-top:10px;}
+details.rqa summary{cursor:pointer;color:var(--acc);font-weight:700;font-size:.9rem;list-style:none;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:var(--acc-l);border-radius:8px;}
+details.rqa summary::-webkit-details-marker{display:none;}
+.rarrow{transition:transform .25s;display:inline-block;}
+details.rqa[open] .rarrow{transform:rotate(90deg);}
+.rans{padding:10px 14px;background:var(--acc-l);border-radius:8px;margin-top:6px;font-size:.93rem;}
+.rans strong{color:#283593;}
+.qwrap{background:#fff;border-radius:14px;border:2px solid var(--acc-m);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.qq{padding:14px 20px 10px;border-bottom:1px solid #eee;font-size:.97rem;}
+.qq:last-of-type{border-bottom:none;}
+.qnum{font-weight:700;color:var(--acc);margin-right:6px;}
+.qch{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin-top:6px;padding-left:20px;font-size:.92rem;color:#444;}
+details.qrev{border-top:2px solid var(--acc);}
+details.qrev summary{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;cursor:pointer;background:var(--acc-l);font-weight:700;color:var(--acc);font-size:1rem;list-style:none;user-select:none;}
+details.qrev summary::-webkit-details-marker{display:none;}
+.qarrow{font-size:1.2rem;transition:transform .25s;display:inline-block;}
+details.qrev[open] .qarrow{transform:rotate(180deg);}
+.rbody{padding:18px 20px;}
+.arow{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;background:#f4f4f4;margin-bottom:8px;}
+.anum{font-weight:700;color:var(--acc);min-width:28px;}
+.akey{font-weight:700;color:#1B5E20;min-width:28px;}
+.aex{color:#444;font-size:.9rem;}
+footer{text-align:center;padding:24px 10px;color:#aaa;font-size:.82rem;border-top:1px solid #eee;margin-top:40px;}
+</style>
+</head>
+<body>
+<header>
+  <h1>🔬 Alice 單字本 · Day 6</h1>
+  <p>科技與創新 · Technology &amp; Innovation</p>
+  <div class="badge-row">
+    <span class="badge">📅 第6天</span>
+    <span class="badge">📖 10個單字</span>
+    <span class="badge">🔴 不熟悉×3 ＋ 🔵 同等級×7</span>
+    <span class="badge">✏️ 3個文法重點</span>
+    <span class="badge">📄 閱讀＋3題</span>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="sec-title">📋 Day 6 學習重點</div>
+<div class="focus-box">
+  <h3>📌 本日三大目標（對應 Alice 的考試弱點）</h3>
+  <ol>
+    <li><b>科技主題關鍵字</b>：innovative / accelerate / algorithm — 學測閱讀科技類文章必備字彙</li>
+    <li><b>stop to V vs. stop V-ing</b>（不定詞 vs. 動名詞語意對比，段考常見混淆點）</li>
+    <li><b>比較級強調詞</b>：far / much / even + 比較級 — 學測作文與閱讀高頻結構</li>
+  </ol>
+</div>
+
+<div class="sec-title">📚 Part 1｜單字學習</div>
+
+<!-- 1 innovative 🔴 -->
+<div class="vc un">
+  <div class="vh"><div class="vm"><div class="we">innovative</div><div class="wk">[ˈɪnəˌvetɪv]</div><span class="wp">adj.</span><div class="wz">創新的；革新的</div></div><div class="dot">🔴</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>innovation (n.) 創新｜innovate (v.) 進行創新｜innovator (n.) 創新者</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>innovative technology 創新技術｜innovative approach 創新方法｜innovation hub 創新中心</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>innovative 強調「新穎獨特」；creative 強調「有創意、創造力」；novel (adj.) 也表示「新奇的」但較少用於科技</span></div>
+    <ul class="ex">
+      <li><div class="en">The company developed an <b>innovative</b> solution that reduced energy consumption by 40%.</div><div class="zh">這家公司開發出了一種創新的解決方案，將能源消耗減少了40%。</div></li>
+      <li><div class="en">Taiwan is known for its <b>innovative</b> semiconductor industry and skilled engineers.</div><div class="zh">台灣以其創新的半導體產業和熟練的工程師聞名。</div></li>
+      <li><div class="en"><b>Innovation</b> in medicine has helped doctors treat diseases that were once considered incurable.</div><div class="zh">醫學上的創新讓醫生得以治療曾經被認為無法治癒的疾病。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2 accelerate 🔴 -->
+<div class="vc un">
+  <div class="vh"><div class="vm"><div class="we">accelerate</div><div class="wk">[əkˈsɛlərˌet]</div><span class="wp">v.</span><div class="wz">加速；使加快</div></div><div class="dot">🔴</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>acceleration (n.) 加速；加速度｜accelerator (n.) 加速器；油門</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>accelerate 指速度或發展「加快」；speed up 較口語；quicken 偏正式文學用語</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>accelerate growth 加速成長｜accelerate the process 加快進程｜accelerate change 促進變革</span></div>
+    <ul class="ex">
+      <li><div class="en">Artificial intelligence is <b>accelerating</b> changes across almost every industry.</div><div class="zh">人工智慧正在幾乎每個行業加速推動變革。</div></li>
+      <li><div class="en">The new policy was designed to <b>accelerate</b> economic recovery after the pandemic.</div><div class="zh">這項新政策旨在加速疫情後的經濟復甦。</div></li>
+      <li><div class="en">Climate change may <b>accelerate</b> the melting of polar ice, raising sea levels worldwide.</div><div class="zh">氣候變化可能加速極地冰川融化，使全球海平面上升。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3 algorithm 🔴 -->
+<div class="vc un">
+  <div class="vh"><div class="vm"><div class="we">algorithm</div><div class="wk">[ˈælgəˌrɪðəm]</div><span class="wp">n.</span><div class="wz">演算法；運算規則</div></div><div class="dot">🔴</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>algorithmic (adj.) 演算法的</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>machine learning algorithm 機器學習演算法｜social media algorithm 社群媒體演算法</span></div>
+    <ul class="ex">
+      <li><div class="en">The <b>algorithm</b> used by the streaming service learns what you like and recommends shows accordingly.</div><div class="zh">串流平台使用的演算法會學習你的喜好，並據此推薦節目。</div></li>
+      <li><div class="en">Engineers spent months perfecting the <b>algorithm</b> that detects errors in medical images.</div><div class="zh">工程師花了幾個月完善用於偵測醫學影像錯誤的演算法。</div></li>
+      <li><div class="en">Social media <b>algorithms</b> can influence what people read and believe about the world.</div><div class="zh">社群媒體的演算法可以影響人們閱讀什麼以及如何看待這個世界。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4 device 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">device</div><div class="wk">[dɪˈvaɪs]</div><span class="wp">n.</span><div class="wz">裝置；設備；手段</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="phrase">片語</b><span>mobile device 行動裝置｜input/output device 輸入/輸出裝置｜literary device 文學技巧</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>device 指具體的機械設備；gadget 口語，指小巧的科技小物；apparatus 指複雜的儀器設備</span></div>
+    <ul class="ex">
+      <li><div class="en">Smartphones are the most widely used <b>devices</b> for accessing the internet today.</div><div class="zh">智慧型手機是如今使用最廣泛的上網裝置。</div></li>
+      <li><div class="en">The new <b>device</b> can measure heart rate and blood pressure in just seconds.</div><div class="zh">這款新裝置可以在短短幾秒內測量心率和血壓。</div></li>
+      <li><div class="en">The engineer designed a small <b>device</b> that could detect air pollution levels in real time.</div><div class="zh">那位工程師設計了一款能夠即時偵測空氣污染程度的小型裝置。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 5 network 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">network</div><div class="wk">[ˈnɛtˌwɜrk]</div><span class="wp">n. / v.</span><div class="wz">網絡；人際網絡（v. 建立人際關係）</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="phrase">片語</b><span>social network 社交網路｜wireless network 無線網絡｜network with sb 與某人建立人脈</span></div>
+    <ul class="ex">
+      <li><div class="en">The company built a secure <b>network</b> to protect its employees' personal data.</div><div class="zh">這家公司建立了一個安全的網路，以保護員工的個人資料。</div></li>
+      <li><div class="en">Social <b>networks</b> have changed the way people communicate and share information.</div><div class="zh">社群網路改變了人們溝通和分享資訊的方式。</div></li>
+      <li><div class="en">Attending industry events is a great way to <b>network</b> with professionals in your field.</div><div class="zh">參加行業活動是與同領域專業人士建立人際關係的好方法。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6 analyze 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">analyze</div><div class="wk">[ˈænəˌlaɪz]</div><span class="wp">v.</span><div class="wz">分析；解析</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>analysis (n.) 分析（複數：analyses）｜analyst (n.) 分析師｜analytical (adj.) 分析性的</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>analyze data 分析數據｜carry out an analysis 進行分析｜data analyst 資料分析師</span></div>
+    <ul class="ex">
+      <li><div class="en">The AI system can <b>analyze</b> thousands of data points in a fraction of a second.</div><div class="zh">這個人工智慧系統可以在極短時間內分析數千個數據點。</div></li>
+      <li><div class="en">Scientists <b>analyzed</b> the soil samples and found traces of contamination.</div><div class="zh">科學家分析了土壤樣本，發現了污染的痕跡。</div></li>
+      <li><div class="en">A skilled <b>analyst</b> can turn raw data into clear and useful business insights.</div><div class="zh">一位熟練的分析師能夠將原始數據轉化為清晰且實用的商業見解。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 7 function 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">function</div><div class="wk">[ˈfʌŋkʃən]</div><span class="wp">n. / v.</span><div class="wz">功能；運作（n./v. 同形）</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>functional (adj.) 功能性的；實用的｜malfunction (n./v.) 故障</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>function as 充當……的功能｜in full function 正常運作中｜a key function 主要功能</span></div>
+    <ul class="ex">
+      <li><div class="en">The primary <b>function</b> of the new app is to help users manage their daily schedules.</div><div class="zh">這款新應用程式的主要功能是幫助用戶管理他們的日常行程。</div></li>
+      <li><div class="en">The device <b>functions</b> like a personal assistant, answering questions and setting reminders.</div><div class="zh">這款裝置的功能就像一位私人助理，能夠回答問題並設定提醒。</div></li>
+      <li><div class="en">After the software update, the system <b>malfunctioned</b> and had to be restarted.</div><div class="zh">軟體更新後，系統發生故障，必須重新啟動。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 8 digital 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">digital</div><div class="wk">[ˈdɪdʒɪtəl]</div><span class="wp">adj.</span><div class="wz">數位的；電子的</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="phrase">片語</b><span>digital technology 數位技術｜digital divide 數位落差｜go digital 數位化</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>digital 是數位的（相對於 analog 類比的）；electronic 泛指電子的（不一定是數位）</span></div>
+    <ul class="ex">
+      <li><div class="en">The <b>digital</b> revolution has transformed the way businesses operate around the world.</div><div class="zh">數位革命改變了全世界企業的運作方式。</div></li>
+      <li><div class="en">Many schools have adopted <b>digital</b> textbooks to reduce costs and improve access.</div><div class="zh">許多學校採用了數位教科書，以降低成本並提高使用的便利性。</div></li>
+      <li><div class="en">The <b>digital divide</b> means that not everyone has equal access to technology and the internet.</div><div class="zh">數位落差意味著並非每個人都能平等地使用科技和網際網路。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 9 access 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">access</div><div class="wk">[ˈæksɛs]</div><span class="wp">n. / v.</span><div class="wz">使用（權）；取得；進入（n./v. 同形）</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>accessible (adj.) 易使用的；可進入的｜inaccessible (adj.) 難以使用的</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>have access to 能使用/進入……｜gain access to 獲得使用權｜access to information 取得資訊</span></div>
+    <ul class="ex">
+      <li><div class="en">Students in remote areas often struggle to <b>access</b> high-quality educational resources.</div><div class="zh">偏遠地區的學生往往難以獲取高品質的教育資源。</div></li>
+      <li><div class="en">The new library gives everyone free <b>access</b> to thousands of books and digital databases.</div><div class="zh">這座新圖書館讓每個人都能免費使用數千本書籍和數位資料庫。</div></li>
+      <li><div class="en">The website is designed to be <b>accessible</b> to people with visual impairments.</div><div class="zh">這個網站的設計考慮到了視障人士的使用需求。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 10 automate 🔵 -->
+<div class="vc">
+  <div class="vh"><div class="vm"><div class="we">automate</div><div class="wk">[ˈɔtəˌmet]</div><span class="wp">v.</span><div class="wz">使自動化</div></div><div class="dot">🔵</div></div>
+  <div class="vb">
+    <div class="tagrow"><b class="deriv">衍生詞</b><span>automation (n.) 自動化｜automated (adj.) 自動化的｜automatic (adj.) 自動的（偏物理機械）</span></div>
+    <div class="tagrow"><b class="confuse">容易混淆</b><span>automate 動詞，強調「使某程序自動化」；automatic 是形容詞，指本身具備自動功能；automated 是過去分詞形容詞，強調已完成自動化</span></div>
+    <div class="tagrow"><b class="phrase">片語</b><span>automate the process 使流程自動化｜factory automation 工廠自動化</span></div>
+    <ul class="ex">
+      <li><div class="en">Many factories have <b>automated</b> their assembly lines to improve efficiency and reduce costs.</div><div class="zh">許多工廠已將其生產線自動化，以提高效率並降低成本。</div></li>
+      <li><div class="en">The rise of AI may <b>automate</b> tasks that were once thought to require human intelligence.</div><div class="zh">人工智慧的興起可能使曾被認為需要人類智慧才能完成的任務自動化。</div></li>
+      <li><div class="en"><b>Automation</b> has raised concerns about job losses in manufacturing industries worldwide.</div><div class="zh">自動化引發了人們對全球製造業就業崗位流失的擔憂。</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Summary Table -->
+<details class="tbl">
+  <summary><span>📋 Day 6 單字衍生詞速查表（點擊展開）</span><span class="tarrow">⌄</span></summary>
+  <table>
+    <tr><th>單字</th><th>衍生詞</th><th>備註</th></tr>
+    <tr><td><b>innovative</b></td><td>innovation, innovate, innovator</td><td>innovation hub</td></tr>
+    <tr><td><b>accelerate</b></td><td>acceleration, accelerator</td><td>accelerate + N</td></tr>
+    <tr><td><b>algorithm</b></td><td>algorithmic</td><td>machine learning ~</td></tr>
+    <tr><td><b>device</b></td><td>—</td><td>mobile / input / literary device</td></tr>
+    <tr><td><b>network</b></td><td>—</td><td>n./v. 同形；social network</td></tr>
+    <tr><td><b>analyze</b></td><td>analysis (複數 analyses), analyst, analytical</td><td>data analyst</td></tr>
+    <tr><td><b>function</b></td><td>functional, malfunction</td><td>n./v. 同形；function as</td></tr>
+    <tr><td><b>digital</b></td><td>—</td><td>digital divide; analog 反義</td></tr>
+    <tr><td><b>access</b></td><td>accessible, inaccessible</td><td>have access to</td></tr>
+    <tr><td><b>automate</b></td><td>automation, automated, automatic</td><td>三個衍生詞語意不同，注意！</td></tr>
+  </table>
+</details>
+
+<!-- ══ GRAMMAR ══ -->
+<div class="sec-title">✏️ Part 2｜文法加強 3 大重點</div>
+
+<div class="gc">
+  <div class="glabel">文法重點 1 ｜ 動名詞 vs. 不定詞 — stop to V vs. stop V-ing</div>
+  <div class="gtitle">stop 後面接不定詞（to V）或動名詞（V-ing），意思完全不同</div>
+  <div class="gbody">
+    <p>這是學測和段考最愛考的不定詞 vs. 動名詞語意辨析！stop 是最典型的例子，後面接不同形式，意思180度不同。</p>
+    <div class="pattern">
+      <b>stop + V-ing</b>：停止做某事（之前在做，現在停下來）<br>
+      <b>stop + to V</b>：停下來去做某事（為了做另一件事而停下）
+    </div>
+    <div class="gex"><div class="en">He <b>stopped using</b> social media to <b>analyze</b> his productivity.</div><div class="zh">他停止使用社群媒體，來分析自己的生產力。（stop V-ing = 停止使用）</div></div>
+    <div class="gex"><div class="en">She <b>stopped to check</b> her phone when she received a notification.</div><div class="zh">她收到通知時，停下來查看手機。（stop to V = 停下來去做）</div></div>
+    <div class="gex"><div class="en">📌 記憶口訣：<b>stop doing</b> = 停「已做的事」；<b>stop to do</b> = 停下來「去做新的事」。</div><div class="zh"></div></div>
+    <p style="margin-top:10px;">同類型動詞：<b>remember / forget / try / regret</b> 後面也有 to V vs. V-ing 的語意差異！</p>
+  </div>
+</div>
+
+<div class="gc">
+  <div class="glabel">文法重點 2 ｜ 學測閱讀 / 段考 — 比較級的強調用法</div>
+  <div class="gtitle">far / much / even / still / a lot + 比較級 = 表達「更……得多」</div>
+  <div class="gbody">
+    <p>比較級前加強調詞，可以讓語氣更強烈。這在學測閱讀中常出現，也是作文加分的好方法！</p>
+    <div class="pattern">
+      <b>far / much / even / still / a lot / a great deal</b> + 比較級<br>
+      ❌ very / so + 比較級（錯誤！很多同學都這樣寫）
+    </div>
+    <div class="gex"><div class="en">AI can <b>analyze</b> data <b>far more</b> quickly than any human analyst.</div><div class="zh">人工智慧分析數據的速度比任何人類分析師快得多。</div></div>
+    <div class="gex"><div class="en">The new <b>algorithm</b> is <b>much more</b> <b>innovative</b> than the previous version.</div><div class="zh">新的演算法比之前的版本創新得多。</div></div>
+    <div class="gex"><div class="en">With <b>digital</b> tools, students can <b>access</b> information <b>even faster</b> than before.</div><div class="zh">有了數位工具，學生取得資訊的速度比以前更快了。</div></div>
+    <p style="margin-top:10px;">⚠️ 常見錯誤："very faster" / "so more efficient" — 比較級前一定用 much/far/even，不用 very/so！</p>
+  </div>
+</div>
+
+<div class="gc">
+  <div class="glabel">文法重點 3 ｜ 學測文意選填 — not only A but (also) B 對等連接詞</div>
+  <div class="gtitle">not only...but also... 連接兩個對等的元素，語意加強</div>
+  <div class="gbody">
+    <p><b>not only A but also B</b> 是學測文意選填和綜合測驗常出現的結構。記住：A 和 B 必須是<b>相同詞性</b>的元素（都是名詞、都是動詞、都是子句等）。</p>
+    <div class="pattern">
+      <b>not only</b> + A + <b>but (also)</b> + B（A 和 B 詞性/結構需平行）<br>
+      <b>both</b> A <b>and</b> B ／ <b>either</b> A <b>or</b> B ／ <b>neither</b> A <b>nor</b> B
+    </div>
+    <div class="gex"><div class="en">AI has changed <b>not only</b> the way we work <b>but also</b> the way we think.</div><div class="zh">人工智慧改變的不只是我們工作的方式，也改變了我們思考的方式。（子句 + 子句 平行）</div></div>
+    <div class="gex"><div class="en">The new <b>device</b> is <b>both</b> <b>innovative</b> <b>and</b> affordable for everyday users.</div><div class="zh">這款新裝置既創新又對日常用戶來說價格實惠。（adj + adj 平行）</div></div>
+    <div class="gex"><div class="en"><b>Not only does</b> <b>automation</b> increase efficiency, <b>but it also</b> reduces human error significantly.</div><div class="zh">自動化不僅提高了效率，還大幅減少了人為錯誤。（倒裝：not only + 助動詞 + S）</div></div>
+    <p style="margin-top:10px;">📌 進階：not only 放句首時，後面主詞和助動詞需倒裝（連接 Day 4 文法重點 3！）</p>
+  </div>
+</div>
+
+<!-- ══ READING ══ -->
+<div class="sec-title">📖 Part 3｜閱讀測驗</div>
+<div class="rbox">
+  <div class="rmeta">
+    <span>主題：Technology &amp; AI（連結學測科技閱讀）</span><span>約 113 字</span><span>難度：高中</span>
+  </div>
+  <p style="font-weight:700;font-size:1.05rem;margin-bottom:10px;">Teaching Machines</p>
+  <div class="rtext">
+    Computers have been getting smarter for decades. Today, thanks to a technology called machine learning, computers are no longer simply following instructions — they are learning from experience. At the heart of this process is the <span class="hl">algorithm</span>: a set of rules that tells a computer how to <span class="hl">analyze</span> data and make decisions.
+    <br><br>
+    Machine learning has <span class="hl">accelerated</span> <span class="hl">innovation</span> in fields ranging from medicine to finance. Doctors can now use <span class="hl">digital</span> tools to detect diseases far earlier than before. Businesses <span class="hl">automate</span> repetitive tasks, freeing workers to focus on creative thinking. However, <span class="hl">not only</span> does this technology bring benefits, <span class="hl">but it also</span> raises difficult questions: What happens when machines make mistakes? Who is responsible? As AI continues to develop, these questions become <span class="hl">far more</span> urgent than ever.
+  </div>
+
+  <!-- Q1 -->
+  <div class="rq">
+    <span class="qn">1.</span>What is the main idea of this passage?
+    <div class="rchoices">
+      <span>(A) Machines will soon replace all human workers.</span>
+      <span>(B) Machine learning brings benefits but also raises important concerns.</span>
+      <span>(C) Algorithms are too complex for ordinary people to understand.</span>
+      <span>(D) Digital tools are only useful in the field of medicine.</span>
+    </div>
+    <details class="rqa"><summary><span class="rarrow">▶</span> 查看答案</summary>
+    <div class="rans"><strong>✔ 正解：(B)</strong><br>全文先說機器學習如何加速創新（benefits），末段再提出「not only...but also raises difficult questions」（concerns）。(A)(C)(D) 都只是細節或過度誇大。</div></details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="rq">
+    <span class="qn">2.</span>According to the passage, how does automation benefit workers?
+    <div class="rchoices">
+      <span>(A) It teaches workers how to design new algorithms.</span>
+      <span>(B) It replaces workers so companies can save money.</span>
+      <span>(C) It handles repetitive tasks, letting workers focus on creative thinking.</span>
+      <span>(D) It gives workers access to better medical tools.</span>
+    </div>
+    <details class="rqa"><summary><span class="rarrow">▶</span> 查看答案</summary>
+    <div class="rans"><strong>✔ 正解：(C)</strong><br>第二段說："Businesses <b>automate</b> repetitive tasks, freeing workers to focus on creative thinking."，直接對應 (C)。注意 (B) 是文章擔憂的面向，並非「benefit workers」。</div></details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="rq">
+    <span class="qn">3.</span>The word "accelerated" in the passage is closest in meaning to:
+    <div class="rchoices">
+      <span>(A) slowed down</span>
+      <span>(B) replaced completely</span>
+      <span>(C) sped up</span>
+      <span>(D) carefully examined</span>
+    </div>
+    <details class="rqa"><summary><span class="rarrow">▶</span> 查看答案</summary>
+    <div class="rans"><strong>✔ 正解：(C)</strong><br>accelerate = 「加速」→ closest to "sped up"。(A) 是反義。注意文中說 AI "accelerated innovation"（加速創新），而非減緩或取代。</div></details>
+  </div>
+</div>
+
+<!-- ══ MCQ ══ -->
+<div class="sec-title">✅ Part 4｜單字選擇複習</div>
+<div class="qwrap">
+  <div class="qq"><span class="qnum">1.</span>The doctor used an <b>________ approach</b> to treat the patient, combining AI tools with traditional medicine.<div class="qch"><span>(A) digital</span><span>(B) automated</span><span>(C) innovative</span><span>(D) accessible</span></div></div>
+  <div class="qq"><span class="qnum">2.</span>The new software can ________ large amounts of medical data to identify potential health risks.<div class="qch"><span>(A) access</span><span>(B) accelerate</span><span>(C) automate</span><span>(D) analyze</span></div></div>
+  <div class="qq"><span class="qnum">3.</span>She ________ checking her emails every five minutes and found she was much more productive.<div class="qch"><span>(A) stopped to check</span><span>(B) stopped checking</span><span>(C) stop to check</span><span>(D) stop checking</span></div></div>
+  <div class="qq"><span class="qnum">4.</span>The internet has made information ________ more accessible to people in remote areas than it was decades ago.<div class="qch"><span>(A) very</span><span>(B) so</span><span>(C) far</span><span>(D) too</span></div></div>
+  <div class="qq"><span class="qnum">5.</span>The new ________ on the smartphone allows users to make payments without carrying a physical wallet.<div class="qch"><span>(A) network</span><span>(B) function</span><span>(C) algorithm</span><span>(D) innovation</span></div></div>
+  <details class="qrev">
+    <summary><span>📋 點此查看答案 &amp; 解析｜手機版請調正</span><span class="qarrow">⌄</span></summary>
+    <div class="rbody">
+      <div class="arow"><span class="anum">1.</span><span class="akey">(C)</span><span class="aex">innovative — "innovative approach" 創新方法。(A) digital 是「數位的」；(B) automated 是「自動化的」，語意不符。</span></div>
+      <div class="arow"><span class="anum">2.</span><span class="akey">(D)</span><span class="aex">analyze — 「分析大量醫療數據」。(A) access = 取得使用權；(B) accelerate = 加速；(C) automate = 使自動化，語意皆不符。</span></div>
+      <div class="arow"><span class="anum">3.</span><span class="akey">(B)</span><span class="aex">stopped checking — 她「停止了查看郵件的習慣」，後來發現更有效率。stop V-ing = 停止做某事。(A) stopped to check = 停下來去查看（之後繼續查看），語意相反！</span></div>
+      <div class="arow"><span class="anum">4.</span><span class="akey">(C)</span><span class="aex">far — far more accessible = 更容易取得得多。比較級前只能用 far/much/even，不能用 very 或 so！</span></div>
+      <div class="arow"><span class="anum">5.</span><span class="akey">(B)</span><span class="aex">function — 「功能」讓使用者無需實體錢包即可付款。(A) network 是網路；(C) algorithm 是演算法；(D) innovation 是創新（太抽象）。</span></div>
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>Alice 英文單字本 Day 6 ｜ Technology &amp; Innovation 🔬 ｜ 僅供個人教學使用</footer>
+</body>
+</html>
