@@ -9,66 +9,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Warm Color Palette */
             --bg-cream: #FFF5E6;
             --bg-warm: #FFE4C4;
             
-            /* Student 1 - 破曉 - Dawn Red Orange */
             --dawn-light: #FFD4B8;
             --dawn-main: #FF8C42;
             --dawn-dark: #E65100;
             
-            /* Student 2 - 烈焰 - Flame Red */
             --flame-light: #FFCDD2;
             --flame-main: #FF5252;
             --flame-dark: #D32F2F;
             
-            /* Student 3 - 赤誠 - Crimson */
             --crimson-light: #F8BBD0;
             --crimson-main: #E91E63;
             --crimson-dark: #C2185B;
             
-            /* Student 4 - 金榜 - Golden */
             --golden-light: #FFF9C4;
             --golden-main: #FFD700;
             --golden-dark: #F9A825;
             
-            /* Student 5 - 奮進 - Amber Rush */
             --amber-light: #FFE0B2;
             --amber-main: #FF9800;
             --amber-dark: #EF6C00;
             
-            /* Student 6 - 登峰 - Summit Orange */
             --summit-light: #FFCCBC;
             --summit-main: #FF6E40;
             --summit-dark: #E64A19;
             
-            /* Student 7 - 翻轉 - Revolution Red */
             --revolution-light: #FFAB91;
             --revolution-main: #FF5722;
             --revolution-dark: #D84315;
             
-            /* Student 8 - 超越 - Exceed Coral */
             --exceed-light: #FFCCBC;
             --exceed-main: #FF7043;
             --exceed-dark: #F4511E;
             
-            /* Student 9 - 決勝 - Victory Gold */
             --victory-light: #FFECB3;
             --victory-main: #FFC107;
             --victory-dark: #FFA000;
             
-            /* Student 10 - 問鼎 - Crown Amber */
             --crown-light: #FFE082;
             --crown-main: #FFB300;
             --crown-dark: #FF8F00;
             
-            /* Student 11 - 璀璨 - Brilliant Orange */
             --brilliant-light: #FFE0B2;
             --brilliant-main: #FB8C00;
             --brilliant-dark: #EF6C00;
             
-            /* Student 12 - 圓夢 - Dream Peach */
             --dream-light: #FFCCBC;
             --dream-main: #FF8A65;
             --dream-dark: #F4511E;
@@ -84,12 +71,11 @@
             font-family: 'Noto Sans TC', sans-serif;
             background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-warm) 100%);
             min-height: 100vh;
-            padding: 30px 15px;
+            padding: 20px 15px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Animated background pattern */
         body::before {
             content: '';
             position: fixed;
@@ -116,9 +102,98 @@
             z-index: 1;
         }
 
+        /* 連結區樣式 */
+        .links-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #FF8C42 0%, #FF5722 100%);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.5);
+        }
+
+        .link-card.line-card {
+            background: linear-gradient(135deg, #06C755 0%, #00B547 100%);
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+
+        .link-card.line-card:hover {
+            box-shadow: 0 8px 25px rgba(6, 199, 85, 0.5);
+        }
+
+        .link-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .link-title {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .link-desc {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             animation: headerPulse 1s ease-out;
         }
 
@@ -135,7 +210,7 @@
 
         h1 {
             font-family: 'Teko', sans-serif;
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 7vw, 5rem);
             font-weight: 700;
             color: #D32F2F;
             text-transform: uppercase;
@@ -174,7 +249,7 @@
 
         .countdown-banner h2 {
             font-family: 'Teko', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 10px;
             letter-spacing: 3px;
         }
@@ -273,7 +348,7 @@
 
         .student-info h2 {
             font-family: 'Teko', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--student-dark);
             letter-spacing: 2px;
@@ -397,11 +472,11 @@
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         footer p {
@@ -409,6 +484,7 @@
             font-weight: 700;
             color: #D32F2F;
             letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         footer p span {
@@ -426,11 +502,14 @@
             }
 
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Floating motivational elements */
         .float-badge {
             position: fixed;
             font-family: 'Teko', sans-serif;
@@ -460,6 +539,29 @@
     <div class="float-badge">登峰</div>
 
     <div class="container">
+        <!-- 頂部連結區 -->
+        <div class="links-section">
+            <div class="links-grid">
+                <a href="https://linwayet.github.io/4ulive/index.html" class="link-card" target="_blank">
+                    <span class="link-icon">📚</span>
+                    <div class="link-title">錯中學 ECHO 計劃</div>
+                    <div class="link-desc">七月暑期密集課程，透過錯誤學習法，讓你的英文實力突飛猛進！</div>
+                </a>
+                
+                <a href="https://linwayet.github.io/popup/index" class="link-card" target="_blank">
+                    <span class="link-icon">📊</span>
+                    <div class="link-title">學生分析系統</div>
+                    <div class="link-desc">精準分析你的學習狀況，找出弱點並制定最佳衝刺策略！</div>
+                </a>
+                
+                <a href="https://line.me/ti/p/linwayet" class="link-card line-card" target="_blank">
+                    <span class="link-icon">💬</span>
+                    <div class="link-title">LINE 線上諮詢</div>
+                    <div class="link-desc">ID: linwayet｜隨時為你解答課程疑問，提供學習建議！</div>
+                </a>
+            </div>
+        </div>
+
         <header>
             <h1>高三衝刺計畫</h1>
             <p class="subtitle">Final Sprint Dashboard</p>
@@ -471,12 +573,12 @@
         </div>
 
         <div class="students-grid">
-            <!-- Student 1 - 破曉 -->
+            <!-- 破曉1號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">1</div>
                     <div class="student-info">
-                        <h2>破曉</h2>
+                        <h2>破曉1號</h2>
                         <p class="motto">Dawn Breaker</p>
                     </div>
                 </div>
@@ -553,906 +655,379 @@
                 </div>
             </div>
 
-            <!-- Student 2 - 烈焰 -->
+            <!-- 烈焰2號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">2</div>
                     <div class="student-info">
-                        <h2>烈焰</h2>
+                        <h2>烈焰2號</h2>
                         <p class="motto">Fierce Flame</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study2-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study2-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study2-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study2-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study2-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study2-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study2-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study2-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study2-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study2-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study2-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study2-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study2-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study2-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study2-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study2-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study2-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 3 - 赤誠 -->
+            <!-- 赤誠3號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">3</div>
                     <div class="student-info">
-                        <h2>赤誠</h2>
+                        <h2>赤誠3號</h2>
                         <p class="motto">True Heart</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study3-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study3-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study3-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study3-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study3-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study3-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study3-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study3-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study3-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study3-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study3-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study3-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study3-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study3-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study3-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study3-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study3-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 4 - 金榜 -->
+            <!-- 金榜4號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">4</div>
                     <div class="student-info">
-                        <h2>金榜</h2>
+                        <h2>金榜4號</h2>
                         <p class="motto">Golden List</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study4-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study4-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study4-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study4-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study4-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study4-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study4-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study4-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study4-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study4-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study4-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study4-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study4-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study4-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study4-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study4-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study4-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 5 - 奮進 -->
+            <!-- 奮進5號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">5</div>
                     <div class="student-info">
-                        <h2>奮進</h2>
+                        <h2>奮進5號</h2>
                         <p class="motto">Strive Forward</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study5-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study5-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study5-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study5-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study5-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study5-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study5-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study5-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study5-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study5-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study5-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study5-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study5-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study5-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study5-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study5-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study5-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 6 - 登峰 -->
+            <!-- 登峰6號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">6</div>
                     <div class="student-info">
-                        <h2>登峰</h2>
+                        <h2>登峰6號</h2>
                         <p class="motto">Summit Climb</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study6-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study6-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study6-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study6-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study6-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study6-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study6-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study6-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study6-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study6-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study6-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study6-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study6-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study6-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study6-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study6-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study6-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 7 - 翻轉 -->
+            <!-- 翻轉7號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">7</div>
                     <div class="student-info">
-                        <h2>翻轉</h2>
+                        <h2>翻轉7號</h2>
                         <p class="motto">Game Changer</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study7-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study7-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study7-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study7-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study7-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study7-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study7-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study7-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study7-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study7-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study7-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study7-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study7-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study7-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study7-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study7-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study7-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 8 - 超越 -->
+            <!-- 超越8號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">8</div>
                     <div class="student-info">
-                        <h2>超越</h2>
+                        <h2>超越8號</h2>
                         <p class="motto">Transcend</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study8-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study8-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study8-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study8-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study8-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study8-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study8-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study8-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study8-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study8-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study8-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study8-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study8-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study8-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study8-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study8-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study8-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 9 - 決勝 -->
+            <!-- 決勝9號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">9</div>
                     <div class="student-info">
-                        <h2>決勝</h2>
+                        <h2>決勝9號</h2>
                         <p class="motto">Victory Seeker</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study9-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study9-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study9-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study9-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study9-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study9-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study9-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study9-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study9-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study9-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study9-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study9-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study9-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study9-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study9-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study9-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study9-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 10 - 問鼎 -->
+            <!-- 問鼎10號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">10</div>
                     <div class="student-info">
-                        <h2>問鼎</h2>
+                        <h2>問鼎10號</h2>
                         <p class="motto">Champion Quest</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study10-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study10-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study10-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study10-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study10-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study10-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study10-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study10-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study10-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study10-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study10-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study10-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study10-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study10-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study10-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study10-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study10-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 11 - 璀璨 -->
+            <!-- 璀璨11號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">11</div>
                     <div class="student-info">
-                        <h2>璀璨</h2>
+                        <h2>璀璨11號</h2>
                         <p class="motto">Brilliant Star</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study11-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study11-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study11-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study11-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study11-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study11-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study11-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study11-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study11-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study11-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study11-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study11-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study11-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study11-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study11-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study11-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study11-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
             </div>
 
-            <!-- Student 12 - 圓夢 -->
+            <!-- 圓夢12號 -->
             <div class="student-card">
                 <div class="student-header">
                     <div class="student-badge">12</div>
                     <div class="student-info">
-                        <h2>圓夢</h2>
+                        <h2>圓夢12號</h2>
                         <p class="motto">Dream Fulfilled</p>
                     </div>
                 </div>
                 <div class="lessons-grid">
-                    <button class="lesson-btn" onclick="location.href='study12-1.html'">
-                        <span class="lesson-number">01</span>
-                        課程一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-2.html'">
-                        <span class="lesson-number">02</span>
-                        課程二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-3.html'">
-                        <span class="lesson-number">03</span>
-                        課程三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-4.html'">
-                        <span class="lesson-number">04</span>
-                        課程四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-5.html'">
-                        <span class="lesson-number">05</span>
-                        課程五
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-6.html'">
-                        <span class="lesson-number">06</span>
-                        課程六
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-7.html'">
-                        <span class="lesson-number">07</span>
-                        課程七
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-8.html'">
-                        <span class="lesson-number">08</span>
-                        課程八
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-9.html'">
-                        <span class="lesson-number">09</span>
-                        課程九
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-10.html'">
-                        <span class="lesson-number">10</span>
-                        課程十
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-11.html'">
-                        <span class="lesson-number">11</span>
-                        課程十一
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-12.html'">
-                        <span class="lesson-number">12</span>
-                        課程十二
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-13.html'">
-                        <span class="lesson-number">13</span>
-                        課程十三
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-14.html'">
-                        <span class="lesson-number">14</span>
-                        課程十四
-                    </button>
-                    <button class="lesson-btn" onclick="location.href='study12-15.html'">
-                        <span class="lesson-number">15</span>
-                        課程十五
-                    </button>
+                    <button class="lesson-btn" onclick="location.href='study12-1.html'"><span class="lesson-number">01</span>課程一</button>
+                    <button class="lesson-btn" onclick="location.href='study12-2.html'"><span class="lesson-number">02</span>課程二</button>
+                    <button class="lesson-btn" onclick="location.href='study12-3.html'"><span class="lesson-number">03</span>課程三</button>
+                    <button class="lesson-btn" onclick="location.href='study12-4.html'"><span class="lesson-number">04</span>課程四</button>
+                    <button class="lesson-btn" onclick="location.href='study12-5.html'"><span class="lesson-number">05</span>課程五</button>
+                    <button class="lesson-btn" onclick="location.href='study12-6.html'"><span class="lesson-number">06</span>課程六</button>
+                    <button class="lesson-btn" onclick="location.href='study12-7.html'"><span class="lesson-number">07</span>課程七</button>
+                    <button class="lesson-btn" onclick="location.href='study12-8.html'"><span class="lesson-number">08</span>課程八</button>
+                    <button class="lesson-btn" onclick="location.href='study12-9.html'"><span class="lesson-number">09</span>課程九</button>
+                    <button class="lesson-btn" onclick="location.href='study12-10.html'"><span class="lesson-number">10</span>課程十</button>
+                    <button class="lesson-btn" onclick="location.href='study12-11.html'"><span class="lesson-number">11</span>課程十一</button>
+                    <button class="lesson-btn" onclick="location.href='study12-12.html'"><span class="lesson-number">12</span>課程十二</button>
+                    <button class="lesson-btn" onclick="location.href='study12-13.html'"><span class="lesson-number">13</span>課程十三</button>
+                    <button class="lesson-btn" onclick="location.href='study12-14.html'"><span class="lesson-number">14</span>課程十四</button>
+                    <button class="lesson-btn" onclick="location.href='study12-15.html'"><span class="lesson-number">15</span>課程十五</button>
                 </div>
                 <div class="progress-section">
-                    <div class="progress-label">
-                        <span>進度</span>
-                        <span>0/15</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" style="width: 0%"></div>
-                    </div>
+                    <div class="progress-label"><span>進度</span><span>0/15</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 0%"></div></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- 底部連結區 -->
+        <div class="links-section">
+            <div class="links-grid">
+                <a href="https://linwayet.github.io/4ulive/index.html" class="link-card" target="_blank">
+                    <span class="link-icon">📚</span>
+                    <div class="link-title">錯中學 ECHO 計劃</div>
+                    <div class="link-desc">七月暑期密集課程，透過錯誤學習法，讓你的英文實力突飛猛進！</div>
+                </a>
+                
+                <a href="https://linwayet.github.io/popup/index" class="link-card" target="_blank">
+                    <span class="link-icon">📊</span>
+                    <div class="link-title">學生分析系統</div>
+                    <div class="link-desc">精準分析你的學習狀況,找出弱點並制定最佳衝刺策略!</div>
+                </a>
+                
+                <a href="https://line.me/ti/p/linwayet" class="link-card line-card" target="_blank">
+                    <span class="link-icon">💬</span>
+                    <div class="link-title">LINE 線上諮詢</div>
+                    <div class="link-desc">ID: linwayet｜隨時為你解答課程疑問，提供學習建議！</div>
+                </a>
             </div>
         </div>
 
